@@ -1,20 +1,29 @@
-import CartWidget from '../CartWidget';
-import './styles.scss';
+import CartWidget from "../CartWidget";
+import "./styles.scss";
+import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
     <div className="nav-bar">
       <div className="left">
         <div className="logo">
-          <a href="/">
-            <img src="https://via.placeholder.com/100x50" alt="Site logo" height="50" width="100" />
-          </a>
+          <Link to="/">
+            <img
+              src="https://via.placeholder.com/100x50"
+              alt="Site logo"
+              height="50"
+              width="100"
+            />
+          </Link>
         </div>
 
         <ul className="menu">
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Productos</a></li>
-          <li><a href="#">Contacto</a></li>
+          <li>
+            <Link to="/">Inicio</Link>
+          </li>
+          <li>
+            <Link to="/detalle">Detalle</Link>
+          </li>
         </ul>
       </div>
       <div className="right">

@@ -1,36 +1,33 @@
-import React, {useState, useEffect} from 'react';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Prueba from "./pages/Prueba";
+import NotFound from "./pages/NotFound";
 
 function App() {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    fetch("https://reqres.in/api/users")
-    .then(res => {
-      return res.json();
-    })
-    .then(json => {
-      console.log('json', json);
-      setUsers(json.data);
-    });
-  }, []);
-
   return (
     <div className="container">
-      <NavBar />
-      <ItemListContainer greeting={'Bienvenidos'} />
+      <BrowserRouter>
+        <NavBar />
 
-      <h2>Usuarios</h2>
-      <ul>
-        {users.map((user) => (
-          <li key={user.id}>
-            <img src={user.avatar} />
-            <h4>{`${user.first_name} ${user.last_name}`}</h4>
-            <p>{user.email}</p>
-          </li>
-        ))}
-      </ul>
+        <Routes>
+          <Route
+            path="/"
+            element={<ItemListContainer greeting={"Bienvenidos"} />}
+          />
+          {/* URL segments */}
+          <Route path="/detalle/:idUser" element={<ItemDetailContainer />} />
+          <Route
+            path="/category/:idCategory"
+            element={<ItemListContainer greeting={"Bienvenidos"} />}
+          />
+
+          <Route path="/prueba" element={<Prueba />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
