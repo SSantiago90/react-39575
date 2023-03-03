@@ -1,5 +1,5 @@
-import { BsFillCartFill } from 'react-icons/bs';
-import './styles.scss';
+import { BsFillCartFill } from "react-icons/bs";
+import "./styles.scss";
 
 function CartWidget() {
   return (

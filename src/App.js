@@ -18,6 +18,7 @@ function App() {
           />
           {/* URL segments */}
           <Route path="/detalle/:idUser" element={<ItemDetailContainer />} />
+
           <Route
             path="/category/:idCategory"
             element={<ItemListContainer greeting={"Bienvenidos"} />}

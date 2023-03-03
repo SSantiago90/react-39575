@@ -3,6 +3,17 @@ import { useState, useEffect } from "react";
 import products from "../../products/products";
 import { useParams } from "react-router-dom";
 
+// ----------------------------------------------------------------------------
+function getSingleItemFromDatabase(idItem) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let encontrado = products.find((item) => item.id === Number(idItem));
+      resolve(encontrado);
+    }, 1000);
+  });
+}
+// -------------------------------------------------------------------------------
+
 function ItemDetailContainer({ greeting }) {
   const [user, setUser] = useState({});
 
@@ -21,14 +32,9 @@ function ItemDetailContainer({ greeting }) {
   }, []); */
 
   useEffect(() => {
-    const promesaItem = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        let encontrado = products.find((item) => item.id === Number(idUser));
-        resolve(encontrado);
-      }, 2000);
+    getSingleItemFromDatabase(idUser).then((respuesta) => {
+      setUser(respuesta);
     });
-
-    promesaItem.then((respuesta) => setUser(respuesta));
   }, []);
 
   return (

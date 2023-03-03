@@ -22,7 +22,13 @@ function NavBar() {
             <Link to="/">Inicio</Link>
           </li>
           <li>
-            <Link to="/detalle">Detalle</Link>
+            <Link to="/category/admin">Admins</Link>
+          </li>
+          <li>
+            <Link to="/category/suscriptor">Suscriptores</Link>
+          </li>
+          <li>
+            <Link to="/category/editor">Editores</Link>
           </li>
         </ul>
       </div>
