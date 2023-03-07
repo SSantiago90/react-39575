@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "../Button";
 
 export default function ItemList({ users }) {
   return (
@@ -15,7 +16,9 @@ export default function ItemList({ users }) {
             <br />
 
             <Link to={`/detalle/${user.id}`}>
-              <button>Ver más</button>
+              <Button>
+                Ver Detalles
+              </Button>
             </Link>
           </li>
           /* hasta aca </Item> */

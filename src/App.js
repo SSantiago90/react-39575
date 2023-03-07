@@ -4,13 +4,13 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Prueba from "./pages/Prueba";
 import NotFound from "./pages/NotFound";
+import Button from "./components/Button";
 
 function App() {
   return (
     <div className="container">
       <BrowserRouter>
         <NavBar />
-
         <Routes>
           <Route
             path="/"

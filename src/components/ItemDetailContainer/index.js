@@ -2,6 +2,8 @@ import "./styles.scss";
 import { useState, useEffect } from "react";
 import products from "../../products/products";
 import { useParams } from "react-router-dom";
+import Button from "../Button";
+import ItemCount from "../ItemCount";
 
 // ----------------------------------------------------------------------------
 function getSingleItemFromDatabase(idItem) {
@@ -14,7 +16,7 @@ function getSingleItemFromDatabase(idItem) {
 }
 // -------------------------------------------------------------------------------
 
-function ItemDetailContainer({ greeting }) {
+function ItemDetailContainer() {
   const [user, setUser] = useState({});
 
   const params = useParams();
@@ -37,18 +39,25 @@ function ItemDetailContainer({ greeting }) {
     });
   }, []);
 
+  function onAddToCart(count) {
+    alert(`Agregaste ${count} items al carrito`);
+  }
+
   return (
     <>
       <div className="item-list-container">
-        <h2>{greeting}</h2>
-
         <ul className="item-list">
           <li className="item-card" key={user.id}>
             <img src={user.avatar} alt={user.first_name} />
             <h4>{`${user.first_name} ${user.last_name}`}</h4>
             <small>{user.email}</small>
             <p>$5000</p>
-            <button>Agregar al carrito</button>
+
+            <ItemCount
+              onAddToCart={onAddToCart}
+              initial={1}
+              stock={user.stock}
+            />
           </li>
         </ul>
       </div>
