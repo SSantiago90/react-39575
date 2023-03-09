@@ -4,6 +4,8 @@ import products from "../../products/products";
 import { useParams } from "react-router-dom";
 import Button from "../Button";
 import ItemCount from "../ItemCount";
+import { useContext } from "react";
+import cartContext from "../../context/cartContext";
 
 // ----------------------------------------------------------------------------
 function getSingleItemFromDatabase(idItem) {
@@ -24,13 +26,13 @@ function ItemDetailContainer() {
 
   /*   useEffect(() => {
     fetch("https://reqres.in/api/users/" + idUser)
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        console.log("respuesta", json);
-        setUser(json.data);
-      });
+    .then((res) => {
+      return res.json();
+    })
+    .then((json) => {
+      console.log("respuesta", json);
+      setUser(json.data);
+    });
   }, []); */
 
   useEffect(() => {
@@ -39,8 +41,11 @@ function ItemDetailContainer() {
     });
   }, []);
 
+  const { addItem } = useContext(cartContext);
+
   function onAddToCart(count) {
     alert(`Agregaste ${count} items al carrito`);
+    addItem(user, count);
   }
 
   return (
