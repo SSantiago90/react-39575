@@ -17,15 +17,27 @@ const ItemCount = ({ initial, stock, onAddToCart }) => {
   };
 
   return (
-    <div>
-      <Button onTouchButton={decrease} color="red">
-        -
-      </Button>
-      <span className="contador"> {count} </span>
-      <Button onTouchButton={increase} color="green">
-        +
-      </Button>
-      <button onClick={() => onAddToCart(count)}>Agregar al carrito</button>
+    <div className="itemcount_container">
+      <small>Agregá la cantidad deseada al carrito</small>
+      <div className="itemcount_control">
+        <Button color="red" onTouchButton={decrease}>
+          -
+        </Button>
+        <span className="itemcount_count">{count}</span>
+        <Button color="green" onTouchButton={increase}>
+          +
+        </Button>
+      </div>
+
+      <div className="itemcount_btns">
+        <Button
+          color="lightblue"
+          className="btn"
+          onTouchButton={() => onAddToCart(count)}
+        >
+          Agregar al carrito
+        </Button>
+      </div>
     </div>
   );
 };

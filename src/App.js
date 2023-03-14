@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Prueba from "./pages/Prueba";
 import NotFound from "./pages/NotFound";
 import { CartContextProvider } from "./context/cartContext";
+import CartContainer from "./components/CartContainer";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
 
             <Route path="/prueba" element={<Prueba />} />
 
+            <Route path="/cart" element={<CartContainer />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

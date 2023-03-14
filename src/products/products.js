@@ -7,6 +7,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/1-image.jpg",
     category: "editor",
     stock: 5,
+    offer: 20,
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const products = [
     avatar: "/img/2-image.jpg",
     category: "editor",
     stock: 5,
+    offer: false,
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/3-image.jpg",
     category: "admin",
     stock: 5,
+    offer: 50,
   },
   {
     id: 4,
@@ -34,6 +37,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/4-image.jpg",
     category: "admin",
     stock: 2,
+    offer: null,
   },
   {
     id: 5,
@@ -42,7 +46,8 @@ const products = [
     last_name: "Morris",
     avatar: "https://reqres.in/img/faces/5-image.jpg",
     category: "suscriptor",
-    stock: 2,
+    stock: 0,
+    offer: "",
   },
   {
     id: 6,

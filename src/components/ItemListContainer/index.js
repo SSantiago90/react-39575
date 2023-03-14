@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import ItemList from "../ItemList";
 import products from "../../products/products";
 import { useParams } from "react-router-dom";
-
+import "./notification.css";
+import Loader from "../Loader";
 // ----------------------------------------------------------------------------
 function getItemsFromDatabase() {
   return new Promise((resolve, reject) => {
@@ -12,7 +13,7 @@ function getItemsFromDatabase() {
     setTimeout(() => {
       if (error === true) reject("Error leyendo los datos");
       resolve(products);
-    }, 1000);
+    }, 3000);
   });
 }
 
@@ -23,13 +24,14 @@ function getItemsByCategoryFromDatabase(categoryURL) {
         (item) => item.category === categoryURL
       );
       resolve(productsFiltered);
-    }, 1000);
+    }, 3000);
   });
 }
 // -------------------------------------------------------------------------------
 
 function ItemListContainer({ greeting }) {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const params = useParams();
   const idCategory = params.idCategory;
@@ -38,9 +40,11 @@ function ItemListContainer({ greeting }) {
     if (idCategory === undefined) {
       let respuesta = await getItemsFromDatabase();
       setUsers(respuesta);
+      setIsLoading(false);
     } else {
       let respuesta = await getItemsByCategoryFromDatabase(idCategory);
       setUsers(respuesta);
+      setIsLoading(false);
     }
   }
 
@@ -48,32 +52,12 @@ function ItemListContainer({ greeting }) {
     leerDatos();
   }, []);
 
-  /* useEffect(() => {
-    let promiseData = getItemsFromDatabase();
-
-    promiseData
-      .then((respuesta) => {
-        setUsers(respuesta);
-      })
-      .catch((error) => alert(error));
-  }, []); */
-
-  /*  useEffect(() => {
-    fetch("https://reqres.in/api/users")
-      .then((res) => {
-        return res.json();
-      })
-      .then((json) => {
-        console.log("json", json);
-        setUsers(json.data);
-      });
-  }, []); */
-
   return (
-    <>
+    <div className="container">
       <h2>{greeting}</h2>
-      <ItemList users={users} />
-    </>
+      {/* 1. rendering condicional con operador ternario */}
+      {isLoading ? <Loader color="purple" /> : <ItemList users={users} />}
+    </div>
   );
 }
 

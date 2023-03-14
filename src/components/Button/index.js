@@ -1,4 +1,4 @@
-import React from "react";
+import "./button.css";
 
 function Button(props) {
   const stylesButton = {
@@ -9,7 +9,7 @@ function Button(props) {
   };
 
   return (
-    <button style={stylesButton} onClick={props.onTouchButton}>
+    <button className="btn" style={stylesButton} onClick={props.onTouchButton}>
       {props.children}
     </button>
   );
