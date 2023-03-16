@@ -7,6 +7,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/1-image.jpg",
     category: "editor",
     stock: 5,
+    price: 3500,
     offer: 20,
   },
   {
@@ -17,6 +18,7 @@ const products = [
     avatar: "/img/2-image.jpg",
     category: "editor",
     stock: 5,
+    price: 800,
     offer: false,
   },
   {
@@ -27,6 +29,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/3-image.jpg",
     category: "admin",
     stock: 5,
+    price: 1200,
     offer: 50,
   },
   {
@@ -37,6 +40,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/4-image.jpg",
     category: "admin",
     stock: 2,
+    price: 2200,
     offer: null,
   },
   {
@@ -47,6 +51,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/5-image.jpg",
     category: "suscriptor",
     stock: 0,
+    price: 4800,
     offer: "",
   },
   {
@@ -57,6 +62,7 @@ const products = [
     avatar: "https://reqres.in/img/faces/6-image.jpg",
     category: "suscriptor",
     stock: 2,
+    price: 2750,
   },
 ];
 
