@@ -5,7 +5,7 @@ import Button from "../Button";
 import "./styles.css";
 
 function CartContainer() {
-  const { cart } = useContext(cartContext);
+  const { cart, removeItemFromCart } = useContext(cartContext);
 
   return (
     <>
@@ -22,22 +22,23 @@ function CartContainer() {
             <th>Total</th>
           </tr>
         </thead>
-
         <tbody>
-          {cart.map((user) => (
-            <tr key={user.id} className="cartList_row">
-              <td>
-                <img height={50} src={user.avatar} alt={user.first_name} />
-              </td>
-              <td>{user.first_name}</td>
-              <td>$ {user.price}</td>
-              <td>{user.count}</td>
-              <td>
-                <Button color="#c63224">X</Button>
-              </td>
-              <th>$ --,--</th>
-            </tr>
-          ))}
+          {cart.map((user) => {
+            return (
+              <tr key={user.id} className="cartList_row">
+                <td>
+                  <img height={50} src={user.avatar} alt={user.first_name} />
+                </td>
+                <td>{user.first_name}</td>
+                <td>$ {user.price}</td>
+                <td>{user.count}</td>                
+                <td>
+                  <button color="#c63224">X</button>
+                </td>
+                <th>$ --,--</th>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 

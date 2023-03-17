@@ -32,8 +32,7 @@ async function getSingleItemFromDatabase(idItem) {
   const docSnapshot = await getDoc(docRef);
 
   // extra
-  if (docSnapshot.exists() === false) 
-    throw new Error("No existe el documento") 
+  if (docSnapshot.exists() === false) throw new Error("No existe el documento");
 
   return { ...docSnapshot.data(), id: docSnapshot.id };
 }
@@ -54,7 +53,7 @@ function ItemDetailContainer() {
       .catch((error) => alert(error));
   }, []);
 
-  const { addItem } = useContext(cartContext);
+  const { addItem, isInCart } = useContext(cartContext);
 
   function onAddToCart(count) {
     alert(`Agregaste ${count} items al carrito`);
@@ -77,7 +76,7 @@ function ItemDetailContainer() {
           <h2 className="priceTag">$ {user.price}</h2>
           <small>{user.category}</small>
         </div>
-        {<ItemCount onAddToCart={onAddToCart} initial={1} stock={user.stock} />}
+        <ItemCount onAddToCart={onAddToCart} initial={1} stock={user.stock} />
       </div>
     </>
   );
