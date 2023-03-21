@@ -2,10 +2,11 @@ import React from "react";
 import { useContext } from "react";
 import cartContext from "../../context/cartContext";
 import Button from "../Button";
+import CheckoutCart from "./CheckoutCart";
 import "./styles.css";
 
 function CartContainer() {
-  const { cart, removeItemFromCart } = useContext(cartContext);
+  const { cart, removeItemFromCart, getPriceInCart } = useContext(cartContext);
 
   return (
     <>
@@ -41,10 +42,12 @@ function CartContainer() {
           })}
         </tbody>
       </table>
-
+        
       <div className="cartList_detail">
         <h4>El total de tu compra es de $ --,--</h4>
       </div>
+
+      <CheckoutCart total={getPriceInCart()} cart={cart}/>
     </>
   );
 }

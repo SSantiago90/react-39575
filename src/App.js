@@ -6,6 +6,7 @@ import Prueba from "./pages/Prueba";
 import NotFound from "./pages/NotFound";
 import { CartContextProvider } from "./context/cartContext";
 import CartContainer from "./components/CartContainer";
+import { exportDataWithBatch } from "./services/firestore";
 
 function App() {
   return (
@@ -29,6 +30,10 @@ function App() {
             <Route path="/prueba" element={<Prueba />} />
 
             <Route path="/cart" element={<CartContainer />} />
+            <Route
+              path="/checkout/:id"
+              element={<h3>Gracias por tu compra</h3>}
+            />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
