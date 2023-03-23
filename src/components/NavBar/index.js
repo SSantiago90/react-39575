@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function NavBar() {
   return (
-    <div className="nav-bar">
+    <nav className="nav-bar">
       <div className="left">
         <div className="logo">
           <Link to="/">
@@ -37,7 +37,7 @@ function NavBar() {
           <CartWidget />
         </Link>
       </div>
-    </div>
+    </nav>
   );
 }
 

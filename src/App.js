@@ -6,7 +6,6 @@ import Prueba from "./pages/Prueba";
 import NotFound from "./pages/NotFound";
 import { CartContextProvider } from "./context/cartContext";
 import CartContainer from "./components/CartContainer";
-import { exportDataWithBatch } from "./services/firestore";
 
 function App() {
   return (
